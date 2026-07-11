@@ -1,0 +1,250 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/breakpoints" as *;
+
+
+.sellers {
+    padding: 124px 0;
+    position: relative;
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 80px;
+
+        h2 {
+            color: $primary;
+            font-size: 100px;
+            font-weight: 900;
+            font-family: $title-font;
+        }
+
+        p {
+            max-width: 65ch;
+            margin: 0 auto;
+            padding: 16px 0;
+            color: $text;
+            font-size: 20px;
+            font-family: $content-font;
+            line-height: 1.2;
+        }
+    }
+}
+
+.sellers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    
+}
+
+.seller-card {
+    padding: 32px;
+    text-align: center;
+    border-radius: $radius-md;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+
+    h3 {
+        color: $primary;
+        font-size: 24px;
+        font-family: $title-font;
+        
+    }
+
+    p {
+        color: $text;
+        padding: 32px;
+        font-family: $content-font;
+        
+    }
+}
+
+.seller-image {
+    width: 180px;
+    height: 180px;
+    border-radius: $circle;
+    overflow: hidden;
+    margin-bottom: 16px;
+    
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.1);
+    }
+}
+
+
+
+.line-taste {
+    position: absolute;
+    width: 100%;
+    
+}
+
+.line-taste path {
+    fill: none;
+    stroke: $secondary;
+    stroke-width: 4;
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+    animation:
+      drawLine 2.5s ease forwards,
+      lineGlow 4s ease-in-out infinite alternate 2.5s;
+}
+
+/* ---------------------------------- SHAPES ------------------------------- */
+.tomato-1{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.tomato-2{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.pasta-icon-1{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    bottom: 5%;
+    left: 43%;
+}
+.pasta-icon-2{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    bottom: 5%;
+    right: 43%;
+}
+/* ----------------------------- ANIMATION ------------------------ */
+@keyframes glow {
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes lineGlow {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+
+.seller-card {
+    position: relative;
+    cursor: pointer;
+
+    h3 {
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background: $primary;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    }
+
+    &:hover h3::after {
+        transform: scaleX(1);
+    }
+}
+
+.seller-image {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba($primary, 0.12);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 1;
+    }
+
+    img {
+    }
+}
+
+.seller-card:hover .seller-image::before {
+    opacity: 1;
+}
+
+@include respond($bp-desktop) {
+  .sellers{
+        padding: 16px 0;
+  }
+  .sellers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .sellers .section-header h2 {
+    font-size: 64px;
+  }
+
+  .pasta-icon-1,
+  .pasta-icon-2,
+   .tomato-1,
+   .tomato-2{
+    display: none;
+  }
+  .sellers .section-header{
+    margin: 0;
+  }
+  .line-taste{
+    z-index: 2;
+  }
+}
+
+@include respond($bp-tablet) {
+  .sellers .section-header h2 {
+    font-size: 48px;
+  }
+
+  .seller-card {
+    padding: 20px;
+  }
+
+  .seller-image {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@include respond($bp-mobile) {
+  .sellers-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sellers .section-header h2 {
+    font-size: 36px;
+  }
+
+  .seller-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .seller-card p {
+    padding: 16px;
+    font-size: 16px;
+  }
+}

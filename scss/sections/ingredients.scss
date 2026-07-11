@@ -1,0 +1,283 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/breakpoints" as *;
+
+.ingredients {
+    background-color: $secondary;
+    position: relative;
+    
+       padding-top: 124px;
+}
+
+.ingredients-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 124px;
+    position: relative;
+    z-index: 3;
+}
+
+.divider {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 320px; 
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wave-ing {
+    position: absolute;
+    top: 87%;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    display: block;
+    fill: $secondary; 
+    z-index: 1;
+    pointer-events: none;
+}
+
+.line-ing {
+    position: absolute;
+    bottom: -101%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line-ing path {
+    fill: none;
+    stroke: $secondary;
+    stroke-width: 4;
+    stroke-dasharray: 1600; 
+    stroke-dashoffset: 1600;
+    animation:
+      drawLine 2.5s ease forwards,
+      lineGlow 4s ease-in-out infinite alternate 2.5s;
+}
+.line-top {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 100%;
+    height: 220px; 
+    z-index: 2;
+    pointer-events: none;
+
+    path {
+        fill: none;
+        stroke: $bg; 
+        stroke-width: 2.5;
+        stroke-dasharray: 1700;   
+        stroke-dashoffset: 1700;
+        animation:
+            drawLine 2.5s ease forwards,
+            lineGlow 4s ease-in-out infinite alternate 2.5s;
+    }
+}
+.ingredients-image {
+    flex: 1;
+    max-width: 400px;
+    top: 103px;
+    right: 100px;
+    position: relative;
+    border-radius: 63% 37% 31% 69% / 50% 30% 70% 50% ;
+    overflow: hidden;
+z-index: 3;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.ingredients-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-size: 90px;
+        font-family: $title-font;
+        margin-bottom: 64px;
+        span {font-style: italic;}
+        color: $white;
+    }
+
+    p {
+        font-size: 25px;
+        font-family: $content-font;
+        margin-bottom: 48px;
+        font-weight: 400;
+        padding-right: 132px;
+        line-height: 1.2;
+        z-index: 3;
+        color: $white;
+    }
+}
+
+
+.pasta-icon-5{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    bottom: -25%;
+    left: 13%;
+    z-index: 2;
+}
+.pasta-icon-6{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    bottom: -25%;
+    left: 20%;
+    z-index: 2;
+}
+/* ----------------------------- ANIMATION ------------------------ */
+@keyframes glow {
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes lineGlow {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+.btn:hover .btn-label {
+    color: $sage;
+}
+
+/******************************************************/
+
+@include respond($bp-desktop) {
+  .ingredients {
+    padding-top: 80px;
+    min-height: 560px;
+  }
+
+  .ingredients-image {
+    max-width: 320px;
+    top: 24px;
+    right: 40px;
+  }
+
+  .ingredients-content {
+    h2 {
+      font-size: 60px;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 32px;
+      padding-right: 40px;
+    }
+  }
+}
+
+@include respond($bp-tablet) {
+  .ingredients {
+    padding-top: 64px;
+    min-height: auto;
+  }
+
+  .ingredients-wrapper {
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 80px;
+    padding-bottom: 32px;
+  }
+
+  .ingredients-image {
+    max-width: 180px;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+
+  .ingredients-content {
+    align-items: flex-start;
+    text-align: left;
+
+    h2 {
+      font-size: 44px;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 24px;
+      padding-right: 0;
+    }
+  }
+
+  
+  .line-top {
+    height: 160px;
+  }
+   .wave-ing{
+        top: 86%;
+  }
+
+  .pasta-icon-5{
+
+   height: 50px;
+        width: 50px;
+        left: 7%;
+}
+.pasta-icon-6{
+    
+    height: 50px;
+    width: 50px;
+  
+}
+}
+
+@include respond($bp-mobile) {
+  .ingredients {
+    padding-top: 48px;
+    min-height: auto;
+  }
+
+  .ingredients-wrapper {
+    gap: 24px;
+   
+  }
+
+  .ingredients-image {
+    display: none;
+  }
+
+  .ingredients-content {
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .divider {
+    height: 160px;
+    bottom: -20px;
+  }
+
+  .line-top {
+    height: 120px;
+    top: -14px;
+  }
+
+  .wave-ing{
+        top: 86%;
+  }
+}

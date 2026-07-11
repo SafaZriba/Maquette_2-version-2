@@ -1,0 +1,97 @@
+:root {
+  --color-primary: #f79b4f;
+  --color-secondary: #a6d8a8;
+  --color-bg: #f5f2e9;
+  --color-text: #4b4036;
+  --color-white: #ffffff;
+
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --circle: 50%;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 3rem;
+  --fs-4xl: 4rem;
+  --fs-5xl: 5rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s cubic-bezier (0.22, 1, 0.36, 1);
+  --transition-slow: 0.8s cubic-bezier (0.22, 1, 0.36, 1);
+
+  --container-width: 1200px;
+
+  --font-family-title: "Playfair Display", serif;
+  --font-family-content: "Roboto";
+}
+
+/* -------------------------------------------------- COMPONENTS --------------------------------------------------*/
+
+/* -------------------------------------------------- SECTIONS ----------------------------------------------------*/
+.application {
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg);
+  max-width: 1440px;
+  align-items: center;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0 24px;
+}
+/* --------------- HEADER ----------------- */
+
+/* ---------------------- HERO-WRAPPER ---------------- */
+
+
+/* ------------ SELLERS ----------- */
+
+
+
+/* ------------------------------ SECTION 2 ,ITALIAN TASTE ---------------------- */
+
+
+/* ----------------------- SECTION 3, STATISTIC --------------------- */
+
+/* -------------------------------------------------- COMPONENTS --------------------------------------------------*/
+.btn{
+  font-size: 29px;
+  font-family: var(--font-family-content);
+  font-weight: 400;
+  padding: 16px 64px;
+  border: 2px solid var(--color-text);
+  border-radius: 999px;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  align-self: flex-start;
+}

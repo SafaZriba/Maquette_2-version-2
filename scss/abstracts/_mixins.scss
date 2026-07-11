@@ -1,0 +1,22 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin section-title {
+    font-family: $title-font;
+    font-weight: 900;
+    text-align: center;
+}
+
+@mixin hover-lift {
+    transition: .3s ease;
+
+    &:hover {
+        transform: translateY(-8px);
+    }
+}
+
+
+
